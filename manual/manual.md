@@ -1,4 +1,4 @@
-#1. Install python
+# 1. Install python
   
 First you need to install python 3 from the Windows Store:
 
@@ -9,7 +9,7 @@ and executing '_python_'. If it was installed correctly, the output should look 
 
 ![](python.png)
 
-##Troubleshooting:
+## Troubleshooting:
 
 If the result of the output is as follows, it means that python isn't working as intended:
 
@@ -18,7 +18,7 @@ If the result of the output is as follows, it means that python isn't working as
 🤷‍
 
 
-#2. Install requirements 
+# 2. Install requirements 
 Simply run the file `install_requirements.bat` to install the necessary requirements.
 
 If Python was installed during the previous step, this process should execute flawlessly
@@ -46,7 +46,7 @@ _Disclaimar_ :
   - Please do not share this data with the Chilligram team either
 - You can revoke this access at any time on the _my.telegram.org_ website
 
-#4. Setup Chilligram
+# 4. Setup Chilligram
 
 Now that all the requirements have been met, we can start configuring Chilligram
 
@@ -88,13 +88,13 @@ There is no recommended value for this setting. Some groups tend to ban users fo
 
 _default: 300_ (= 5 minutes)
 
-###loop_count
+### loop_count
 The number of times Chilligram will loop until it stops working.
 Settings this value to 0 will loop infinitely
 
 _default: 1_
 
-###image_path
+### image_path
 The path for the image-file that will be used to send image messages.
 Chilligram will send this image as an attachment and add the 'long' text along with it.
 
@@ -109,13 +109,13 @@ For example, setting `enable_short_messages = True` will send the 'short_message
 _default: False_
 
 
-##Troubleshoot:
+## Troubleshoot:
 
 If any of the settings don't behave as intended, you most-likely set an invalid value. The most common mistake is using the wrong case.
 All settings are case-sensitive: True (not true), False (not false), short (not Short), etc.
 
 
-#5. First test run
+# 5. First test run
 Before the first launch, we'll need to inspect the `groups.json`, which is the most important  part of Chilligram.
 This file contains a list of all the different groups Chilligram is going to send messages in.
 This is a JSON file, so please use the correct formatting to edit it. Even a small mistake in this file will stop Chilligram from starting again.
