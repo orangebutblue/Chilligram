@@ -23,7 +23,7 @@ Simply run the file `install_requirements.bat` to install the necessary requirem
 
 If Python was installed during the previous step, this process should execute flawlessly
 
-#3. Get your Telegram API access
+# 3. Get your Telegram API access
 Chilligram will use your own Telegram account to shill on your behalf. Therefore you need to grant Chilligram access to your Telegram account.
 
 Unlike regular clients, bots use API to access your account.
