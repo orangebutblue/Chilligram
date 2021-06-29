@@ -67,11 +67,11 @@ Again: We **strongly** recommend that you're 100% certain what you're doing befo
 _default: True_
 
 ### test_mode_messsage_type
-This setting can have 4 valid values: `short`, `long`, `nocontract`, `image`
-Depending on which setting is set, Chilligram will either send your short-message, your long-message,... to the test groups
+This setting can have 4 valid values: `strict`, `tolerant`, `nocontract`, `image`
+Depending on which setting is set, Chilligram will either send your strict-message, your tolerant-message,... to the test groups
 It's recommended to test out each output message once before to make sure that they're all working as intended.
 
-_default: short_
+_default: strict_
 
 ### wait_between_messages
 Each time Chilligram sends a message to a group, it will wait this many seconds before it continues sending the next message.
@@ -96,7 +96,7 @@ _default: 1_
 
 ### image_path
 The path for the image-file that will be used to send image messages.
-Chilligram will send this image as an attachment and add the 'long' text along with it.
+Chilligram will send this image as an attachment and add the 'tolerant' text along with it.
 
 Please, make sure that the file is in the same directory as Chilligram and that you've typed in the filename (+extension) correctly.
 If you do not have a shill-image or do not wish to use shill-messages with an image, turn off the image-messages (see below)
@@ -104,7 +104,7 @@ If you do not have a shill-image or do not wish to use shill-messages with an im
 ### enable_XXXX_messages
 The following settings will allow you to turn on/off a specific message-type completely. If turned off, Chilligram will ignore the entire list of groups that corresponds with that message type
 
-For example, setting `enable_short_messages = True` will send the 'short_message' to the `"short"` groups in the `groups.json`
+For example, setting `enable_strict_messages = True` will send the 'strict_message' to the `"strict"` groups in the `groups.json`
 
 _default: False_
 
@@ -112,7 +112,7 @@ _default: False_
 ## Troubleshoot:
 
 If any of the settings don't behave as intended, you most-likely set an invalid value. The most common mistake is using the wrong case.
-All settings are case-sensitive: True (not true), False (not false), short (not Short), etc.
+All settings are case-sensitive: True (not true), False (not false), strict (not Strict), etc.
 
 
 # 5. First test run
@@ -122,7 +122,7 @@ This is a JSON file, so please use the correct formatting to edit it. Even a sma
 
 ![](img.png)
 
-The file contains various group categories ("short", "nocontract", "long", "image"), followed a colon and square-brackets. The square-brackets contain the actual groups, separated by commas.
+The file contains various group categories ("strict", "nocontract", "tolerant", "image"), followed a colon and square-brackets. The square-brackets contain the actual groups, separated by commas.
 Please note that there is no comma after the final entry (see image above).
 
 For now, we want to focus on the "test" category, which contains 3 different private groups.
@@ -154,8 +154,60 @@ If you've changed any of the settings, please restart Chilligram for the setting
 After you've tested Chilligram a few times in test_mode and are happy with the results, you can finally switch on live mode by setting:
 `test_mode = False`
 
+Make sure you've joined the pre-defined groups in the groups.json or add your own groups to that list
 - We do not recommend setting wait_between_messages lower than 1
 - We do not recommend setting wait_between_loops lower than 300
 - We do not recommend shilling in public groups with @Combot
   
 Not using Chilligram responsibly will lead to local or global bans
+
+
+
+# FAQ:
+Q: How does Chilligram work?  
+A: Chilligram uses your Telegram account to continuously write messages on your behalf in any group of your choosing
+
+Q: How many messages can Chilligram send?  
+A: Technically there is no limit on how much and how often Chilligram can send out messages. However, normal bans can occur if you use it irresponsibly. We recommend not sending more than 1 message per second and not posting in the same group more often than every 5 minutes.  
+
+Q: How do I change the groups Chilligram shills in?  
+A: Simply open the groups.json and look at the different pre-defined categories: strict, tolerant, nocontract, image.  
+Before you add a new group to this list, please make sure what type of content is allowed in this group. Then add it accordingly to the category it applies to (see next question) 
+
+Q: What's the significance of the different shill message types / shill groups?  
+A: Different groups have different types of message-restrictions. To shill your project in the most effective way possible, Chilligram let's you define 4 different types of shill-messages to get the best possible outcome:
+- "strict" groups only allow a rather short message to be sent. These groups also prohibit links of any kind.  
+- "tolerant" groups allow a rather long shill message to be sent. There is usually little content-restrictions. These messages can contain many characters and links
+- "image" groups are similar to tolerant-groups, but they even allow for image attachments. Chilligram will use an image (provided by you) along-side the tolerant-message to shill in these groups
+- "nocontract" groups do not allow the inclusion of a contract address in the shill message. It's also recommended to not use any links in these groups.
+
+
+
+Q: How do I change the Chilligram shill-messages?    
+A: When you first acquire Chilligram, you'll be asked to provide several shill-messages. Chilligram is meant to be used for a single project only. Only the Chilligram team can change these messages for you. If you've provided us with a shill-messages containing typos or would generally alter your initial message, please contact the support.
+
+Q: I've set the wait_between_messages to X - why is the time in between messages higher than that?    
+A: To make Chilligram as reliable as possible, the Bot always awaits the message confirmation for every message it sends out. Only after that will Chilligram send another message. Internet delays and Telegram lags will cause this time to increase. Chilligram only makes sure there is a minimum delay in between messages to prevent bans. 
+
+Q: I purchased Chilligram for my project. Can the other project-members use Chilligram for free?
+A: Yes. You can send out the Chilligram files that were provided to you. Please keep in mind that we don't have the capacity to provide support to each of your project-members.
+  
+Q: Can I switch my license model after my initial purchase?  
+A: Yes, please contact us, so we can work out a fair solution for you.
+
+Q: I purchased Chilligram, but I can't get it to work  
+A: Please follow the manual instructions step-by-step. If you're stuck at any certain point, please provide us with **the current step in the manual** you're stuck at
+
+Q: I've used Chilligram, but I've been banned  
+A: Chilligram has a number of features to prevent you from getting banned.
+But ultimately, there is no guaranteed way to avoid bans.
+Out of the box, Chilligram uses conservative settings to prevent any types of bans.
+If you've change the Chilligram settings beyond the recommended values, it's your fault.  
+Use Chilligram responsibly:
+- Do not shill in the same group too often
+- Don't flood
+- Choose your shill-messages carefully (Our staff will try to advise you on this)
+- Avoid @Combot moderated groups
+- Most importantly: Don't shill in groups where shilling is forbidden
+
+
