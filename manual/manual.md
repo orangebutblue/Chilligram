@@ -1,29 +1,5 @@
-# 1. Install python
-  
-First you need to install python 3 from the Windows Store:
 
-https://www.microsoft.com/en-us/p/python-39/9p7qfqmjrfp7
-
-After Python was installed, you can confirm it's working correctly by opening up a command prompt (cmd)
-and executing '_python_'. If it was installed correctly, the output should look something like this:
-
-![](python.png)
-
-## Troubleshooting:
-
-If the result of the output is as follows, it means that python isn't working as intended:
-
-`'python' is not recognized as an internal or external command`
-
-🤷‍
-
-
-# 2. Install requirements 
-Simply run the file `install_requirements.bat` to install the necessary requirements.
-
-If Python was installed during the previous step, this process should execute flawlessly
-
-# 3. Get your Telegram API access
+# 1. Get your Telegram API access
 Chilligram will use your own Telegram account to shill on your behalf. Therefore you need to grant Chilligram access to your Telegram account.
 
 Unlike regular clients, bots use API to access your account.
@@ -46,7 +22,7 @@ _Disclaimar_ :
   - Please do not share this data with the Chilligram team either
 - You can revoke this access at any time on the _my.telegram.org_ website
 
-# 4. Setup Chilligram
+# 2. Setup Chilligram
 
 Now that all the requirements have been met, we can start configuring Chilligram
 
@@ -94,6 +70,14 @@ Settings this value to 0 will loop infinitely
 
 _default: 1_
 
+### enable_combot_detection
+If set to True, then Chilligram will automatically search the member list of the group for @combot. If @combot is in the current group, no message will be sent.
+This setting will decrease the speed of Chilligram (especially in groups with many members), but will avoid @combot-protected rooms
+@combot may punish you with a permanent CAS-ban, which will shut your account out of many groups
+
+_default: True_
+
+
 ### image_path
 The path for the image-file that will be used to send image messages.
 Chilligram will send this image as an attachment and add the 'tolerant' text along with it.
@@ -115,7 +99,7 @@ If any of the settings don't behave as intended, you most-likely set an invalid 
 All settings are case-sensitive: True (not true), False (not false), strict (not Strict), etc.
 
 
-# 5. First test run
+# 3. First test run
 Before the first launch, we'll need to inspect the `groups.json`, which is the most important  part of Chilligram.
 This file contains a list of all the different groups Chilligram is going to send messages in.
 This is a JSON file, so please use the correct formatting to edit it. Even a small mistake in this file will stop Chilligram from starting again.
@@ -150,7 +134,7 @@ The test groups service different purposes.
 
 If you've changed any of the settings, please restart Chilligram for the settings to take effect.
 
-# 6. Switching from test_mode to live
+# 4. Switching from test_mode to live
 After you've tested Chilligram a few times in test_mode and are happy with the results, you can finally switch on live mode by setting:
 `test_mode = False`
 
